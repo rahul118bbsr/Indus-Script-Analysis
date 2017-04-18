@@ -8,22 +8,29 @@ def entropy(stringlength, output, base = 2.0):
     return H
 
 # Counts frequency as per given n
-def ngrams(fileDir, n):
+def ngrams(fileDir, n, count = 0):
     output = {}
     for line in fileDir:
         line = line.strip().split('-')
         for i in range(len(line)-n+1):
             g = ' '.join(line[i:i+n])
             output.setdefault(g, 0)
+            count += 1
             output[g] += 1
-    return output
+    print("Count for ", n , " gram: ", count)
+    return entropy(count, output)
+
+def calculateEntropy(fileDir, n):
+    return ngrams(fileDir, n)
 
 fileDir = open("/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/corpus.txt")
-output = ngrams(fileDir, 1)
+print(calculateEntropy(fileDir, 1))
 fileDir = open("/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/corpus.txt")
-textLength = 0
-for line in fileDir:
-    line = line.strip().split('-')
-    textLength += len(line)
-    
-print(entropy(textLength, output))
+print(calculateEntropy(fileDir, 2))
+fileDir = open("/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/corpus.txt")
+print(calculateEntropy(fileDir, 3))
+fileDir = open("/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/corpus.txt")
+print(calculateEntropy(fileDir, 4))
+
+# Calculate Mutual Information:
+# uniGramEntropy

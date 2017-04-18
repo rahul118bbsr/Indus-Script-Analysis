@@ -90,8 +90,8 @@ for line in fileDir:
 output = "<html><body><table>"
 ngrams = ngram_counter.get_ngrams()
 for ngram in ngrams.keys():
-  count = ngrams[ngram]
-  if count > 1:
+    count = ngrams[ngram]
+#   if count > 1:
     output += "<tr><td>%s</td><td>%s</td></tr>" % (ngram, str(count))
     print (' '.join(ngram) + ": " + str(count))
 output += "</table></body></html>"

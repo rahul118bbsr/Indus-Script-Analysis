@@ -12,10 +12,10 @@ def ngrams(fileDir, n):
   return output
 
 fileDir = open("/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/corpus.txt")
-output = ngrams(fileDir, 2)
+output = ngrams(fileDir, 1)
 
 sorted_x = sorted(output.items(), key=operator.itemgetter(1), reverse=True)
-f = open('/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/output/frequency_trigram.txt', 'w')
+f = open('/Users/aleesha/Documents/FIT/semester 2/AI/Assignment/nGramProject/output/frequency_unigram.txt', 'w')
 
 #print(sorted_x)
 f.write("Symbol" + "\t\t\t" + "Frequency\n")
